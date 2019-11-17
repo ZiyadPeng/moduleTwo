@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
-import { NavigationExtras } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -11,26 +11,26 @@ export class Tab1Page implements OnInit {
 
   data = [
     {
-      title: "Bag 1",
+      title: "Puny Man Bag (P.M.B)",
       description: "This is a puny bag",
       price: "40",
       image: "bag1.jpg"
     },
     {
-      title: "Bag 2",
+      title: "Nike SB Kool V10",
       description: "This is a medium bag",
       price: "100",
       image: "bag2.jpg"
     },
     {
-      title: "Bag 3",
+      title: "Nike Duffel",
       description: "This is a large ass bag",
       price: "140",
       image: "bag3.jpg"
     }
   ];
 
-  constructor(private toast: ToastController) { }
+  constructor(private toast: ToastController, private router :Router) { }
   async presentToast(message: any){
     const toast = await this.toast.create({
       message: message,
@@ -43,12 +43,13 @@ export class Tab1Page implements OnInit {
 
   }
 
-  submit(item, id){
+  submit(id){
     let navigationExtras: NavigationExtras = {
       state:{
-        item:item
+        data: this.data[id]
       }
     }
+    this.router.navigate(['view'], navigationExtras)
 
   }
 

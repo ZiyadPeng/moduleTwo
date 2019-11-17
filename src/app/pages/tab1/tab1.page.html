@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab1</ion-title>
+    <ion-title>Bagasi Murah</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,7 +8,7 @@
   <ion-grid>
 
     <ion-row *ngFor="let item of data; let i=index;">
-       <ion-card (click)="submit(item, i)">
+       <ion-card (click)="submit(i)">
          <ion-card-content>
            <ion-row>
              <ion-col size="6">
